@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 public class Main {
 
@@ -25,7 +26,7 @@ public class Main {
         System.out.println("Победил " + winnerName + "!");
     }
 
-    private static void watch(Hippodrome hippodrome) throws Exception {
+    private static void watch(Hippodrome hippodrome) {
         hippodrome.getHorses().stream()
                 .map(horse -> ".".repeat((int) horse.getDistance()) + horse.getName())
                 .forEach(System.out::println);
