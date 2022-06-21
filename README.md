@@ -1,7 +1,7 @@
 # hippodrome
-project for jUnit, Mockito &amp; Log4j examine
+project for jUnit, Mockito &amp; Log4j 
 
-Класс Horse:
+1. Класс Horse:
 конструктор
 Проверить, что при передаче в конструктор первым параметром null, будет выброшено IllegalArgumentException. Для этого нужно воспользоваться методом assertThrows;
 Проверить, что при передаче в конструктор первым параметром null, выброшенное исключение будет содержать сообщение "Name cannot be null.". Для этого нужно получить сообщение из перехваченного исключения и воспользоваться методом assertEquals;
