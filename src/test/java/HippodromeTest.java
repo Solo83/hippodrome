@@ -3,6 +3,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -54,7 +55,7 @@ public class HippodromeTest {
 
     {
         for (int i = 0; i < 50; i++) {
-            mockList.add(Mockito.spy(new Horse("Name" + i, i, i + 1)));
+            mockList.add(Mockito.spy(new Horse("Name" + i, i, 50 - i)));
         }
     }
 
@@ -74,17 +75,9 @@ public class HippodromeTest {
     @Test
     public void getWinner() {
 
-        double max = 0;
-        Horse bestHorse = mockHippodrome.getHorses().get(0);
+        Horse max = mockHippodrome.getHorses().stream().max(Comparator.comparingDouble(Horse::getDistance)).get();
 
-        for (Horse horse : mockHippodrome.getHorses()) {
-
-            if (horse.getDistance() > max) {
-                bestHorse = horse;
-            }
-        }
-
-        assertEquals(bestHorse, mockHippodrome.getWinner());
+        assertEquals(max, mockHippodrome.getWinner());
     }
 
 }
